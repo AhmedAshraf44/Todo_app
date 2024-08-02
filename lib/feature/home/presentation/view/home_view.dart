@@ -23,6 +23,9 @@ class HomeView extends StatelessWidget {
         listener: (context, state) {
           if (state is InsertDatabaseState) {
             Navigator.pop(context);
+            timeController.clear();
+            tittleController.clear();
+            dateController.clear();
           }
         },
         builder: (context, state) {
@@ -63,7 +66,6 @@ class HomeView extends StatelessWidget {
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     CustomTextFormField(
-                                        onTap: () {},
                                         controller: tittleController,
                                         keyboardType: TextInputType.text,
                                         prefixIcon: const Icon(Icons.title),
@@ -118,9 +120,6 @@ class HomeView extends StatelessWidget {
                                               dateController.text =
                                                   DateFormat.yMMMEd()
                                                       .format(value!);
-
-                                              //  print(
-                                              // 'value : ${dateController.text}');
                                             },
                                           );
                                         },
